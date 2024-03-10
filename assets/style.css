@@ -35,7 +35,7 @@ html {
     content: "";
     width: 107px;
     height: 70px;
-    background-image: url("./Done.png");
+    background-image: url("Done.png");
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -99,5 +99,35 @@ html {
     background-image: url();
     
     
+  }
+
+  .img1 {
+    background-image: url("Bucket01.png");
+    color: white;
+  }
+
+  .img2 {
+    background-image: url("Bucket02.png");
+    color: #E8344E;
+  }
+
+  .img3 {
+    background-image: url("Bucket03.png");
+    color: #E8344E;
+  }
+
+  .img4 {
+    background-image: url("Bucket04.png");
+    color: white;
+  }
+
+  .img5 {
+    background-image: url("Bucket05.png");
+    color: white;
+  }
+
+  .img6 {
+    background-image: url("Bucket06.png");
+    color: #E8344E;
   }
 

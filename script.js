@@ -20,52 +20,53 @@ document.addEventListener("DOMContentLoaded", (event) => {
     var newItemText = newItemInput.value;
     var imgNumText = imgNum.value;
     if (newItemText.trim() !== '') {
-      addItem(newItemText,imgNumText);
+      addItem(newItemText,imgNumText, false);
       newItemInput.value = ''; // 입력 필드 초기화
     }
   });
 
    // 버킷 리스트 아이템 추가 함수
- function addItem(itemText,imgNum) {
+ function addItem(itemText,imgNum,completed) {
   var newItem = document.createElement('div');
-  newItem.className = 'bucket';
-  newItem.className = 'img' + imgNum;
+  newItem.className = 'bucket img' + imgNum;
   
   // 아이템 텍스트
   newItem.textContent = itemText;
+
+  bucketList.appendChild(newItem);
 
   newItem.addEventListener("click", function () {
     // 클래스 토글
     newItem.classList.toggle("done");
 
     // 로컬 스토리지에 상태 저장
-    if (bucket.classList.contains("done")) {
+    if (bucketList.classList.contains("done")) {
       localStorage.setItem("bucket" + index, "done");
     } else {
       localStorage.setItem("bucket" + index, "");
     }
-    
   });
+
+    // localStorage에 항목 추가
+    var items = JSON.parse(localStorage.getItem('bucketItems')) || [];
+    items.push({ text: itemText, number: imgNum, completed: false });
+    localStorage.setItem('bucketItems', JSON.stringify(items));
  }
 
  
   function loadItems() {
+    bucketList
     var items = JSON.parse(localStorage.getItem('bucketItems')) || [];
     items.forEach(function(item) {
-        addItem(item.text, item.number);
+        addItem(item.text, item.number, item.completed);
         if (item.completed) {
             var newItem = bucketList.lastChild;
             newItem.classList.add('completed');
         }
     });
   }
-});
 
-
-
-
-
- 
+  
 // localStorage에서 저장된 아이템 로드 함수 (페이지가 로드될 때만 호출)
 
 
@@ -82,6 +83,13 @@ function deleteItem(item) {
       item.remove();
   }
 }
+});
+
+
+
+
+
+ 
 
 
 

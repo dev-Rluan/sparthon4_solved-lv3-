@@ -5,15 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="assets/style.css" />
+    <style>
+      .bg {
+        background-image: url("assets/Sparthon_BG.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        background-color: #141617;
+      }
+  
+      .title {
+        margin-top: 50px;
+        color: #E8344E;
+      }
+  
+      .msg {
+        color: white;
+        margin-bottom: 48px;
+      }
+  
+      .bucket {
+        width: 160px;
+        height: 160px;
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+
+      }
+  
+    </style>
+    <script src="script2.js"></script>
 </head>
 <body>
     <body class="bg center">
         <div class="additional-background" style="background-image: url('assets/벚꽃배경1.jpg'); z-index: -1;"></div>
         <!-- <div class="additional-background" style="background-image: url('assets/벚꽃배경2.png'); z-index: -2;"></div> -->
         <!-- <div class="additional-background" style="background-image: url('assets/벚꽃배경.gif'); z-index: -2;"></div> -->
-        <form id="bucketForm">
+        <form id="bucketAddForm">
             <input type="text" id="newItem" placeholder="Add new item" required>
-            <input type="text" id="imgNum">
+            <select id="imgNum">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
             <button type="submit">Add</button>
         </form>
         
@@ -24,7 +61,7 @@
         <p class="msg-t5">꿈은 꾸는 것이 아닌, 이루는 것이다.</p>
         <div class="flex-row wrap" id="bucketList">
         </div>
-        <script src="script.js"></script>
+        
       </body>
     </div>
 </body>
