@@ -131,3 +131,7 @@ html {
     color: #E8344E;
   }
 
+  .delBtn{
+    align-items: right;
+    background-image: url("Delete.png");
+  }

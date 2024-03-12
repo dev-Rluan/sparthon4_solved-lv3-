@@ -85,7 +85,7 @@ function addItem(seq, itemText, imgNum, toggle){
           }
         });   
       }
-      
+      addDelBtn(newItem,seq);
       // items.push(item);
       localStorage.setItem('bucketItems', JSON.stringify(tempItems));
     });
@@ -103,6 +103,19 @@ function addItem(seq, itemText, imgNum, toggle){
     }
     bucketList.appendChild(newItem);
     
+}
+
+function addDelBtn(item, seq){
+  var newItem = document.createElement('div');
+  newItem.className += delBtn;
+  newItem.addEventListener("click", function() {
+    var items = JSON.parse(localStorage.getItem('bucketItems')) || [];
+    items = items.filter(function(seq) {
+      return item.seq !== seq;
+  });
+  localStorage.setItem('bucketItems', JSON.stringify(items));
+  });
+  item.appendChild(newItem);
 }
 
 });
